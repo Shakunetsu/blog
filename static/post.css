@@ -1,0 +1,17 @@
+@import url("/static/fonts/SpaceMono-Regular.ttf");
+
+body {
+    font-family: 'Space Mono', monospace;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#center-col {
+    width: 60%;
+}
+
+h1 {
+    font-size: 40pt;
+}

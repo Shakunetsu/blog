@@ -1,0 +1,17 @@
+# This is the first post!!
+
+```rust
+let var = "Hello World";
+println!("{}", var);
+
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et mi purus. Nam ut diam lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed tempor libero vel maximus malesuada. Sed lectus ante, varius in bibendum ac, semper dignissim lectus. Vestibulum id nibh consequat augue suscipit rhoncus. Aenean vel dolor vel arcu imperdiet sodales nec eget leo. Integer quis erat imperdiet, tempor risus nec, iaculis lorem.
+
+Cras tristique velit eu tellus mollis, vel vulputate nibh elementum. Nullam gravida justo id lorem scelerisque, eget faucibus metus iaculis. Nullam sit amet ligula in dui convallis lacinia quis eu quam. In hac habitasse platea dictumst. Duis quis elit fringilla, efficitur risus viverra, porta justo. Phasellus sagittis bibendum tortor. Ut nisl eros, mattis in sodales at, elementum id eros. Aenean sit amet erat eget lacus tempor elementum quis ut sapien. Pellentesque egestas, augue at eleifend tempor, nibh nisl pharetra dolor, quis cursus arcu dolor vitae felis. Integer eu diam vel risus euismod placerat. Duis pulvinar leo vitae dignissim tincidunt. Quisque tincidunt ut ligula ut mattis. Aenean nec turpis orci. Donec vel scelerisque lectus. Morbi sit amet orci dictum, aliquet libero ut, sodales felis.
+
+Aliquam porttitor quis purus quis vulputate. Donec a massa ut mi aliquam sagittis ac vehicula nisi. Etiam id mattis odio, at hendrerit erat. Proin bibendum, turpis eu elementum tristique, eros ex auctor nisi, et gravida purus leo ac dui. Aenean non eleifend diam. Pellentesque imperdiet ligula eu orci vulputate fringilla. Sed at dolor turpis. Curabitur pretium fermentum tortor in mollis. Sed fringilla vestibulum nibh non suscipit. In suscipit ultrices turpis in pellentesque.
+
+Donec ornare nec ipsum sit amet feugiat. Quisque fringilla porttitor libero id euismod. Donec id odio blandit, commodo orci id, condimentum lacus. Donec sollicitudin sollicitudin arcu, blandit interdum elit pulvinar aliquet. Quisque vitae leo est. In consectetur lacus ac convallis pretium. Phasellus dapibus, ex ac pharetra consectetur, nibh eros commodo ante, et eleifend velit sapien ut lorem. Vestibulum feugiat magna vulputate risus maximus, at suscipit erat sagittis. Morbi id efficitur ex, et viverra lectus. Vestibulum vel elit facilisis, pellentesque nibh at, pellentesque dui. Morbi pretium diam condimentum, posuere eros et, gravida felis.
+
+Quisque commodo lobortis tincidunt. Vestibulum et elit placerat, tempus lacus a, accumsan tellus. Nullam metus erat, suscipit nec convallis ut, faucibus eget leo. Sed volutpat dictum purus, vel rhoncus augue molestie sed. Etiam hendrerit scelerisque sollicitudin. Proin vulputate bibendum urna, id porttitor leo eleifend a. Aliquam sollicitudin arcu et neque bibendum, sed ornare dui commodo. Aliquam imperdiet orci non tortor accumsan, in pretium orci pellentesque. Aliquam metus lacus, pellentesque in facilisis sed, egestas eget libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer luctus orci et gravida pulvinar. Ut aliquet, sem a tempus blandit, nibh quam malesuada ex, nec accumsan metus mauris et risus. Curabitur viverra semper magna vel egestas. Etiam eget tellus tincidunt, vulputate mauris a, convallis velit. Mauris vestibulum nisl lobortis lacus consectetur venenatis. 
