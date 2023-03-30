@@ -37,7 +37,7 @@ fn create_index() -> String {
 
     for post in posts {
         let file_name = post.unwrap().file_name().to_str().unwrap().to_owned();
-        html_string.push_str(&format!("<a href=\"/posts/{}\">{}</a>", file_name, &file_name[0..file_name.len() - 5].to_owned()));
+        html_string.push_str(&format!("<a href=\"posts/{}\">{}</a>", file_name, &file_name[0..file_name.len() - 5].to_owned()));
     }
 
     html_string.push_str(template_pieces.next().unwrap());
