@@ -31,6 +31,9 @@ fn main() {
 
     let mut posts = vec![];
 
+    fs::remove_dir_all("posts").unwrap();
+    fs::create_dir("posts").unwrap();
+
     for file in markdown_files {
         let file = file.unwrap();
 
