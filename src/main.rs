@@ -72,18 +72,11 @@ fn create_index(posts: Posts) -> String {
 fn create_post(file_path: PathBuf, options: Options) -> Post {
     let template = fs::read_to_string("static/post-template.html").unwrap();
 
-    let mut template_pieces = template.split("{body}");
-
-    let mut html_string = String::new();
-    
-    html_string.push_str(template_pieces.next().unwrap());
-
     let markdown = read_to_string(file_path.clone()).unwrap();
-    let parser = Parser::new_ext(&markdown, options);
 
     let mut title = String::new();
 
-    for event in  Parser::new_ext(&markdown, options) {
+    for event in Parser::new_ext(&markdown, options) {
         match event {
             pulldown_cmark::Event::Text(text) => {
                 title = text.to_string();
@@ -93,9 +86,20 @@ fn create_post(file_path: PathBuf, options: Options) -> Post {
         }
     }
 
+    let template = template.replace("{title}", &title);
+
+    let mut template_pieces = template.split("{body}");
+
+    let mut html_string = String::new();
+    
+    html_string.push_str(template_pieces.next().unwrap());
+
+    let parser = Parser::new_ext(&markdown, options);
+
     html::push_html(&mut html_string, parser);
 
     html_string.push_str(template_pieces.next().unwrap());
+
 
     let file_path = file_path.strip_prefix("markdown/").unwrap().to_str().unwrap().to_owned();
 

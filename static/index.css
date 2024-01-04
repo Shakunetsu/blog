@@ -1,5 +1,9 @@
 @import url("/static/fonts/SpaceMono-Regular.ttf");
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: 'Space Mono', monospace;
     background-color: black;
@@ -10,15 +14,15 @@ body {
 
 #center-col {
     width: 60%;
+    background: linear-gradient(#441a2e 10em, black 15em);
 }
 
 h1 {
     font-size: 60pt;
-    background-color: #613b8a;
     text-align: center;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0em;
     margin-top: 0;
 }
 
@@ -35,7 +39,6 @@ a {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-
     #center-col {
         width: 100%;
     }
@@ -43,7 +46,6 @@ a {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-
     #center-col {
         width: 100%;
     }

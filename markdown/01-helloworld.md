@@ -1,5 +1,6 @@
-# I made a blog
-
+# Hello, World!
+### 4.3.23
+---
 This marks the start of my personal blog, I hope to use this as a place to share the things I'm working on, and I hope it can be a valuable resource to someone in the future.
 
 I've always been interested in blogs, to me, they are one of the most interesting forms of content on the internet, they can range from pure entertainment to incredibly in-depth research on topics you wouldn't even begin to imagine. As someone who has learned computer science and programming almost entirely on their own, blogs have provided more value than I have found in many of my teachers.

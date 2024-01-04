@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Space Mono', monospace;
-    background-color: black;
+    background: linear-gradient(#441a2e, black 10em);
     color: white;
     display: flex;
     justify-content: center;
@@ -12,14 +12,34 @@ h1 {
     font-size: 40pt;
 }
 
+h2 {
+    font-size: 30pt;
+}
+
+h3 {
+    font-size: 20pt;
+}
+
+p {
+    font-size: large;
+}
+
 .back-button {
     font-size: 20pt;
 }
 
 blockquote {
-    border-left: 8px solid rgb(15, 15, 15);
+    border-left: 8px solid rgb(45, 45, 45);
     /* background: rgb(20, 20, 20); */
     padding-left: 1em;
+}
+
+p code {
+    background-color: rgb(45, 45, 45);
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.25em;
+    padding-top: 0.25em;
 }
 
 /* Extra small devices (phones, 600px and down) */
