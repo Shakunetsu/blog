@@ -28,6 +28,7 @@ fn main() {
 
     let mut options = Options::empty();
     options.insert(Options::ENABLE_STRIKETHROUGH);
+    options.insert(Options::ENABLE_HEADING_ATTRIBUTES);
 
     let mut posts = vec![];
 
@@ -99,7 +100,6 @@ fn create_post(file_path: PathBuf, options: Options) -> Post {
     html::push_html(&mut html_string, parser);
 
     html_string.push_str(template_pieces.next().unwrap());
-
 
     let file_path = file_path.strip_prefix("markdown/").unwrap().to_str().unwrap().to_owned();
 
