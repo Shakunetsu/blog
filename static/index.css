@@ -1,4 +1,7 @@
-@import url("/static/fonts/SpaceMono-Regular.ttf");
+@font-face {
+    font-family: SpaceMono;
+    src: url("/static/fonts/SpaceMono-Regular.ttf");
+}
 
 html {
     height: 100%;

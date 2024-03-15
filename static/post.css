@@ -1,4 +1,7 @@
-@import url("/static/fonts/SpaceMono-Regular.ttf");
+@font-face {
+    font-family: SpaceMono;
+    src: url("/static/fonts/SpaceMono-Regular.ttf");
+}
 
 body {
     font-family: 'Space Mono', monospace;
@@ -6,6 +9,8 @@ body {
     color: white;
     display: flex;
     justify-content: center;
+    margin: 8px;
+    min-height: calc(100vh - 16px);
 }
 
 h1 {

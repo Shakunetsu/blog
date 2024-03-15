@@ -48,6 +48,9 @@ fn main() {
         posts.push(post);
     }
 
+    posts.sort_by_key(|post| post.file_name.clone());
+    posts.reverse();
+
     let index_html = create_index(posts);
     fs::write("index.html", index_html).unwrap();
 }
