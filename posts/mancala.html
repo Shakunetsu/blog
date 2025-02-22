@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../static/post.css">
     <link rel="stylesheet" href="../static/prism.css">
     <script src="../static/prism.js"></script>
-    <title>!Err E0040 - Solving Mancala in Rust</title>
+    <title>Solving Mancala in Rust</title>
 </head>
 
 <body>
@@ -41,7 +41,7 @@ The player with the most stones in their store wins.</li>
 |        [00][01][02][03][04][05][06][NA]          |
 ---              Opponent Side                   ---
 </code></pre>
-<p>We will be numbering our board spaces, starting with our player &quot;store&quot;, going down the opponent side, and then back through the player side. Making the store the first element will be helpful later.</p>
+<p>We will be numbering our board spaces, starting with our player "store", going down the opponent side, and then back through the player side. Making the store the first element will be helpful later.</p>
 <p>(The opponent store is skipped because you do not move there)</p>
 <h2 id="new-game">New game layout, and user input</h2>
 <pre><code class="language-md">---              Player Side                     ---
@@ -57,7 +57,7 @@ The player with the most stones in their store wins.</li>
 <p><code>cargo new mancala-solver</code></p>
 <p>This will give you <code>main.rs</code>:</p>
 <pre><code class="language-rust">fn main() {
-    println!(&quot;Hello, world!&quot;);
+    println!("Hello, world!");
 }
 </code></pre>
 <h2 id="making-a-board">First Steps - Making a Board</h2>
@@ -72,7 +72,7 @@ The player with the most stones in their store wins.</li>
 }
 </code></pre>
 <p>Read more about structs <a href="https://doc.rust-lang.org/book/ch05-01-defining-structs.html">here</a></p>
-<p>We will represent our board spaces as an array of <code>u8</code> integers, 13 in length (6 spaces per side + player store). These are all the movable spaces, so they are the ones we have to calculate on. </p>
+<p>We will represent our board spaces as an array of <code>u8</code> integers, 13 in length (6 spaces per side + player store). These are all the movable spaces, so they are the ones we have to calculate on.</p>
 <p>We also want to keep track of the opponent store just incase we want to do more with it later (displaying the board, etc.).</p>
 <p>We will also keep a vector of <code>u8</code> to represent each move made on a board, this will be used to show the user at the end the proper moves to take. (This vector will NOT store avalanche moves as they are made automatically).</p>
 <p>The number of moves taken will be tracked so we can terminate a board if it reaches past the maximum simulation depth (More on this later).</p>
@@ -92,7 +92,7 @@ The player with the most stones in their store wins.</li>
     }
 }
 </code></pre>
-<p>Here we are implementing the <code>Default</code> trait for our board. </p>
+<p>Here we are implementing the <code>Default</code> trait for our board.</p>
 <p>We will create an instance of our <code>MancalaBoard</code>, inside of which we will create a new array, starting with a 0 to represent our player store, and the rest filled with 4's (these are both the player, and opponent sides combined). We will also initialize our opponent store to be 0. Lastly, an empty vector will be created with the <code>vec![]</code> macro for our move history, preparing new moves to be added as we make them.</p>
 <h3 id="existing-board">Creating a new board from existing pieces</h3>
 <p>Add this underneath the <code>Default</code> impl:</p>
@@ -118,40 +118,40 @@ The player with the most stones in their store wins.</li>
     let mut input = String::new();
 
     // Get player store
-    print!(&quot;Player Store: &quot;);
-    std::io::stdout().flush().expect(&quot;error flushing stdout&quot;);
+    print!("Player Store: ");
+    std::io::stdout().flush().expect("error flushing stdout");
 
     std::io::stdin()
         .read_line(&amp;mut input)
-        .expect(&quot;Unable to read user input&quot;);
+        .expect("Unable to read user input");
 
     let player_store: u8 = input
         .trim()
         .parse()
-        .expect(&quot;error parsing player store input&quot;);
+        .expect("error parsing player store input");
     input.clear();
 
     // Get opponent store
-    print!(&quot;Opponent Store: &quot;);
-    std::io::stdout().flush().expect(&quot;error flushing stdout&quot;);
+    print!("Opponent Store: ");
+    std::io::stdout().flush().expect("error flushing stdout");
 
     std::io::stdin()
         .read_line(&amp;mut input)
-        .expect(&quot;Unable to read user input&quot;);
+        .expect("Unable to read user input");
 
     let opponent_store: u8 = input
         .trim()
         .parse()
-        .expect(&quot;error parsing player store input&quot;);
+        .expect("error parsing player store input");
     input.clear();
 
     // Get player spaces
-    print!(&quot;Player Spaces (opponent-&gt;player, space-seperated): &quot;);
-    std::io::stdout().flush().expect(&quot;error flushing stdout&quot;);
+    print!("Player Spaces (opponent-&gt;player, space-seperated): ");
+    std::io::stdout().flush().expect("error flushing stdout");
 
     std::io::stdin()
         .read_line(&amp;mut input)
-        .expect(&quot;Unable to read user input&quot;);
+        .expect("Unable to read user input");
 
     let mut player_spaces: Vec&lt;u8&gt; = input
         .trim()
@@ -162,12 +162,12 @@ The player with the most stones in their store wins.</li>
     input.clear();
 
     // Get opponent spaces
-    print!(&quot;Opponent Spaces (player-&gt;opponent, space-seperated): &quot;);
-    std::io::stdout().flush().expect(&quot;error flushing stdout&quot;);
+    print!("Opponent Spaces (player-&gt;opponent, space-seperated): ");
+    std::io::stdout().flush().expect("error flushing stdout");
 
     std::io::stdin()
         .read_line(&amp;mut input)
-        .expect(&quot;Unable to read user input&quot;);
+        .expect("Unable to read user input");
 
     let mut opponent_spaces: Vec&lt;u8&gt; = input
         .trim()
@@ -184,7 +184,7 @@ The player with the most stones in their store wins.</li>
     MancalaBoard::new(
         spaces
             .try_into()
-            .expect(&quot;Error converting spaces vec into array&quot;),
+            .expect("Error converting spaces vec into array"),
         opponent_store,
     )
 }
@@ -219,7 +219,7 @@ mod tests {
 <li>You drop your last piece into an empty space - This simply ends the turn</li>
 <li>You drop your last piece into your store - This gives you a free turn</li>
 <li>You run out of possible moves and the game is over</li>
-<li>You drop your last piece into a space with other pieces - This triggers an &quot;avalance&quot;</li>
+<li>You drop your last piece into a space with other pieces - This triggers an "avalance"</li>
 </ol>
 <p>We are going to represent these possible outcomes in an <a href="https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html">enum</a> named <code>MoveResult</code>:</p>
 <pre><code class="language-rust">enum MoveResult {
@@ -252,7 +252,7 @@ fn is_zero(buf: &amp;[u8]) -&gt; bool {
     self.move_history.push(
         space
             .try_into()
-            .expect(&quot;Could not convert usize to u8 for move history&quot;),
+            .expect("Could not convert usize to u8 for move history"),
     );
 } else {
     self.did_avalanche = false;
@@ -300,7 +300,7 @@ self.spaces[space] = 0;
         self.move_history.push(
             space
                 .try_into()
-                .expect(&quot;Could not convert usize to u8 for move history&quot;),
+                .expect("Could not convert usize to u8 for move history"),
         );
     } else {
         self.did_avalanche = false;
@@ -349,7 +349,7 @@ fn move_piece() {
 <pre><code class="language-rust">fn simulate(board: MancalaBoard, depth: u8) -&gt; MancalaBoard {}
 </code></pre>
 <h3 id="initialization">Initialization of the stack</h3>
-<p>The first step is to create our &quot;stack&quot; which will be of type <code>Vec&lt;MancalaBoard&gt;</code> and will be used to store the boards of the initial 6 possible moves.</p>
+<p>The first step is to create our "stack" which will be of type <code>Vec&lt;MancalaBoard&gt;</code> and will be used to store the boards of the initial 6 possible moves.</p>
 <pre><code class="language-rust">let mut initial_space_stack: Vec&lt;MancalaBoard&gt; = vec![];
 </code></pre>
 <p>Next we need to create a loop over the 6 player spaces:</p>
@@ -405,7 +405,7 @@ let mut final_stack: Vec&lt;MancalaBoard&gt; = vec![];
 </code></pre>
 <p>This is where the main simulation cycles occur.</p>
 <p>Start by popping a board off the top of the stack:</p>
-<pre><code class="language-rust">let stack_board = stack.pop().expect(&quot;Stack Empty&quot;);
+<pre><code class="language-rust">let stack_board = stack.pop().expect("Stack Empty");
 </code></pre>
 <p>We are now essentially going to recreate the same steps we took above inside of this loop:</p>
 <pre><code class="language-rust">for mut space in 7..=12 {
@@ -460,7 +460,7 @@ initial_space_stack.into_iter().for_each(|board| {
     }
 });
 </code></pre>
-<p>This is just doing the exact same thing as above. </p>
+<p>This is just doing the exact same thing as above.</p>
 <h3 id="returning">Returning</h3>
 <p><code>final_board</code> now contains the highest scoring board for the given layout!!!</p>
 <p>Go ahead and return that value:</p>
@@ -496,7 +496,7 @@ initial_space_stack.into_iter().for_each(|board| {
         }
 
         while stack.len() &gt; 0 {
-            let stack_board = stack.pop().expect(&quot;Stack Empty&quot;);
+            let stack_board = stack.pop().expect("Stack Empty");
 
             for mut space in 7..=12 {
                 let mut temp_board = stack_board.clone();
@@ -564,7 +564,7 @@ fn solve_default_board() {
 <p>Just for readability, we will create a function to print a board that looks like our diagram in the top of this post:</p>
 <pre><code class="language-rust">fn print_board(board: MancalaBoard) {
     println!(
-        &quot;[  ][{}][{}][{}][{}][{}][{}][  ]&quot;,
+        "[  ][{}][{}][{}][{}][{}][{}][  ]",
         board.spaces[12],
         board.spaces[11],
         board.spaces[10],
@@ -573,11 +573,11 @@ fn solve_default_board() {
         board.spaces[7]
     );
     println!(
-        &quot;[{}]-------------------[{}]&quot;,
+        "[{}]-------------------[{}]",
         board.spaces[0], board.opponent_store
     );
     println!(
-        &quot;[  ][{}][{}][{}][{}][{}][{}][  ]&quot;,
+        "[  ][{}][{}][{}][{}][{}][{}][  ]",
         board.spaces[1],
         board.spaces[2],
         board.spaces[3],
@@ -594,7 +594,7 @@ fn solve_default_board() {
     let board = get_user_board();
     let solved_board = simulate(board, 100); // depth can be altered here
 
-    println!(&quot;{:?}&quot;, solved_board.move_history); // Shows the player what moves to make
+    println!("{:?}", solved_board.move_history); // Shows the player what moves to make
     print_board(solved_board);
 }
 </code></pre>

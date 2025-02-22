@@ -3,14 +3,26 @@
     src: url("/static/fonts/SpaceMono-Regular.ttf");
 }
 
+.back-button {
+    font-size: 20pt;
+}
+
 body {
     font-family: 'Space Mono', monospace;
-    background: linear-gradient(#441a2e, black 10em);
+    background-color: black;
     color: white;
     display: flex;
     justify-content: center;
     margin: 8px;
     min-height: calc(100vh - 16px);
+}
+
+body h1:first-of-type {
+    margin-bottom: 0;
+}
+
+body h3:first-of-type {
+    margin-top: 0;
 }
 
 h1 {
@@ -29,13 +41,18 @@ p {
     font-size: large;
 }
 
-.back-button {
-    font-size: 20pt;
+hr {
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+a {
+    color: white;
+    font-weight: bold;
 }
 
 blockquote {
-    border-left: 8px solid rgb(45, 45, 45);
-    /* background: rgb(20, 20, 20); */
+    border-left: 8px solid white;
     padding-left: 1em;
 }
 
@@ -49,6 +66,17 @@ p code {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 25pt;
+    }
+
+    h2 {
+        font-size: 20pt;
+    }
+
+    h3 {
+        font-size: 15pt;
+    }
 
     #center-col {
         width: 100%;
@@ -66,20 +94,20 @@ p code {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     #center-col {
-        width: 80%;
+        width: 90%;
     }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     #center-col {
-        width: 60%;
+        width: 70%;
     }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     #center-col {
-        width: 60%;
+        width: 50%;
     }
 }
